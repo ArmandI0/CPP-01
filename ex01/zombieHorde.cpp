@@ -6,7 +6,7 @@
 /*   By: aranger <aranger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 16:58:46 by aranger           #+#    #+#             */
-/*   Updated: 2024/04/29 10:46:21 by aranger          ###   ########.fr       */
+/*   Updated: 2024/04/29 11:20:03 by aranger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ Zombie*	zombieHorde(int N, std::string name)
 {
 	Zombie *horde = new Zombie[N];
 	
-	if (N <= 0)
+	if (N <= 0 || N > 10000)
 		return nullptr;
 	for(int i = 0; i < N; i++)
-		horde[i].set_name("name");
+		horde[i].set_name(name);
 	return horde;
 }
