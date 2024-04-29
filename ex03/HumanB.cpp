@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: aranger <aranger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/29 11:44:08 by aranger           #+#    #+#             */
-/*   Updated: 2024/04/29 16:50:32 by aranger          ###   ########.fr       */
+/*   Created: 2024/04/29 20:18:23 by aranger           #+#    #+#             */
+/*   Updated: 2024/04/29 21:17:10 by aranger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,22 @@
 HumanB::HumanB(std::string a)
 {
 	name = a;
-	weapon = nullptr;
+	_weapon = NULL;
 }
 
 HumanB::~HumanB()
 {
 
 }
-void HumanB::setWeapon(Weapon a)
+void HumanB::setWeapon(Weapon &a)
 {
-	weapon = new Weapon(a);
+	this->_weapon = &a;
 }
 
 void HumanB::attack()
 {
-	if (weapon == nullptr)
+	if (_weapon == NULL)
 		std::cout << name << " attacks with their" << " hands" << std::endl;
 	else
-		std::cout << name << " attacks with their " << weapon->getType() << std::endl;
+		std::cout << name << " attacks with their " << _weapon->getType() << std::endl;
 }

@@ -6,32 +6,27 @@
 #    By: aranger <aranger@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 16:48:16 by aranger           #+#    #+#              #
-#    Updated: 2024/04/29 20:17:15 by aranger          ###   ########.fr        #
+#    Updated: 2024/04/29 17:15:50 by aranger          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = my_program
-
-SRCS = $(wildcard *.cpp)
-OBJS = $(patsubst %.cpp, %.o, $(SRCS))
-
 CXX = c++
+
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-all: $(NAME)
+EXEC = mon_programme
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $^ -o $@
+SRCS = main.cpp
+
+OBJS = $(SRCS:.cpp=.o)
+
+all: $(EXEC)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
+$(EXEC): $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
 clean:
-	rm -f $(OBJS) $(NAME)
-
-fclean: clean
-	rm -f *~
-
-re: fclean all
-
-.PHONY: all clean fclean re
+	rm -f $(OBJS) $(EXEC)

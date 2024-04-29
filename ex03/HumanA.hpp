@@ -6,11 +6,13 @@
 /*   By: aranger <aranger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 11:38:20 by aranger           #+#    #+#             */
-/*   Updated: 2024/04/29 12:51:01 by aranger          ###   ########.fr       */
+/*   Updated: 2024/04/29 21:14:58 by aranger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef HumanA_hpp
+#define HumanA_hpp
+
 #include "Weapon.hpp"
 
 class HumanA
@@ -22,5 +24,7 @@ class HumanA
 
 	private:
 		std::string	name;
-		Weapon	&weapon;
+		Weapon	&_weapon;
 };
+
+#endif
