@@ -6,7 +6,7 @@
 #    By: aranger <aranger@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 16:48:16 by aranger           #+#    #+#              #
-#    Updated: 2024/04/28 15:37:28 by aranger          ###   ########.fr        #
+#    Updated: 2024/04/28 17:06:40 by aranger          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,9 @@ NAME    = zombie
 
 SRCS    =	\
 			main.cpp \
-			NewZombie.cpp \
-			randomChump.cpp \
 			Zombie.cpp \
-			
+			zombieHorde.cpp \
+
 OBJS    = $(SRCS:.cpp=.o)
 
 all     : $(NAME)

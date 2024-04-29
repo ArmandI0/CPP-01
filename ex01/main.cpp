@@ -6,7 +6,7 @@
 /*   By: aranger <aranger@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 15:33:29 by aranger           #+#    #+#             */
-/*   Updated: 2024/04/28 16:31:36 by aranger          ###   ########.fr       */
+/*   Updated: 2024/04/29 10:45:02 by aranger          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 int	main(void)
 {
 	Zombie *new_zombie;
-
-	new_zombie = newZombie("");
-	new_zombie->announce();
-	delete new_zombie;
-
-	randomChump("aranger");
-	randomChump("");
+	new_zombie = zombieHorde(10, "timo");
+	for (int i = 0; i < 10; i++)
+		new_zombie[i].announce();
+	delete[] new_zombie;
 }
