@@ -6,27 +6,37 @@
 #    By: aranger <aranger@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 16:48:16 by aranger           #+#    #+#              #
-#    Updated: 2024/04/29 17:15:50 by aranger          ###   ########.fr        #
+#    Updated: 2024/04/29 13:58:07 by aranger          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CXX = c++
+CPP     = c++
+CFLAGS  = -Wall -Wextra -Werror -g -std=c++98
+NAME    = brain
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98
+SRCS    =	\
+			main.cpp \
+			HumanB.cpp \
+			HumanA.cpp \
+			Weapon.cpp \
 
-EXEC = mon_programme
+OBJS    = $(SRCS:.cpp=.o)
 
-SRCS = main.cpp
+all     : $(NAME)
 
-OBJS = $(SRCS:.cpp=.o)
+.c.o    :
+			$(CPP) $(CFLAGS) -c $< -o $(<:.c=.o)
+  
+$(NAME) :	$(OBJS)
+			$(CPP) $(CFLAGS) $(OBJS) -o $(NAME)	
+ 
+clean   :
+			rm -f $(OBJS)
 
-all: $(EXEC)
+fclean  :
+			@$(MAKE) clean			
+			rm -f $(NAME)
 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+re : fclean $(NAME)
 
-$(EXEC): $(OBJS)
-	$(CXX) $(CXXFLAGS) $^ -o $@
-
-clean:
-	rm -f $(OBJS) $(EXEC)
+.PHONY  : all clean fclean re
