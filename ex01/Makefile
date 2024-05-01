@@ -6,36 +6,30 @@
 #    By: aranger <aranger@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 16:48:16 by aranger           #+#    #+#              #
-#    Updated: 2024/04/28 17:06:40 by aranger          ###   ########.fr        #
+#    Updated: 2024/05/01 11:31:19 by aranger          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-CPP     = c++
-CFLAGS  = -Wall -Wextra -Werror -std=c++98
-NAME    = zombie
+CXX = c++
 
-SRCS    =	\
-			main.cpp \
-			Zombie.cpp \
-			zombieHorde.cpp \
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-OBJS    = $(SRCS:.cpp=.o)
+EXEC = harlFilter
 
-all     : $(NAME)
+SRCS = \
+		main.cpp \
+		Zombie.cpp \
+		zombieHorde.cpp \
 
-.c.o    :
-			$(CPP) $(CFLAGS) -c $< -o $(<:.c=.o)
-  
-$(NAME) :	$(OBJS)
-			$(CPP) $(CFLAGS) $(OBJS) -o $(NAME)	
- 
-clean   :
-			rm -f $(OBJS)
+OBJS = $(SRCS:.cpp=.o)
 
-fclean  :
-			@$(MAKE) clean			
-			rm -f $(NAME)
+all: $(EXEC)
 
-re : fclean $(NAME)
+%.o: %.cpp
+	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-.PHONY  : all clean fclean re
+$(EXEC): $(OBJS)
+	$(CXX) $(CXXFLAGS) $^ -o $@
+
+clean:
+	rm -f $(OBJS) $(EXEC)

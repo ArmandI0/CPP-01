@@ -6,7 +6,7 @@
 #    By: aranger <aranger@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/04/27 16:48:16 by aranger           #+#    #+#              #
-#    Updated: 2024/04/29 17:15:50 by aranger          ###   ########.fr        #
+#    Updated: 2024/05/01 10:24:31 by aranger          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,9 +14,11 @@ CXX = c++
 
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
-EXEC = mon_programme
+EXEC = Harl
 
-SRCS = main.cpp
+SRCS = \
+		main.cpp \
+		Harl.cpp \
 
 OBJS = $(SRCS:.cpp=.o)
 
