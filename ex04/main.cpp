@@ -24,7 +24,6 @@ int main(int ac, char **av)
 	int	pos;
 	std::ifstream infile(av[1]);
 	std::string s_word = av[2];
-	std::string r_word = av[3];
 	if(infile)
 	{
 		while(getline(infile, str))
