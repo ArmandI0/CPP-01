@@ -2,6 +2,18 @@
 #include <fstream>
 #include <string>
 
+std::string	replace(std::string str, size_t pos, size_t lenght, std::string word)
+{
+	std::string NewStr;
+	std::string	Tmp;
+
+	NewStr.assign(str, 0, pos);
+	NewStr.append(word);
+	Tmp.assign(str, pos + lenght, str.length());
+	NewStr.append(Tmp);
+	return NewStr;
+}
+
 int main(int ac, char **av)
 {
 
@@ -19,7 +31,7 @@ int main(int ac, char **av)
 		while(getline(infile, str))
 		{
 			while((pos = str.find(s_word)) != -1)
-				str.replace(pos, s_word.length(), av[3]);
+				str = replace(str, pos, s_word.length(), av[3]);
 			out.append(str);
 			out.append("\n");
 		}
