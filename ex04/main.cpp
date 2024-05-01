@@ -25,7 +25,6 @@ int main(int ac, char **av)
 	std::ifstream infile(av[1]);
 	std::string s_word = av[2];
 	std::string r_word = av[3];
-
 	if(infile)
 	{
 		while(getline(infile, str))
@@ -35,8 +34,13 @@ int main(int ac, char **av)
 			out.append(str);
 			out.append("\n");
 		}
+		std::string OutfileName;
+		OutfileName.append(av[1]);
+		OutfileName.append(".replace");
+
+		std::ofstream outfile(OutfileName.c_str());
+		outfile << out;
+		return 0;
 	}
-	std::ofstream outfile("test");
-	outfile << out;
-	return 0;
+	std::cout << "Bad infile" << std::endl;
 }
